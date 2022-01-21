@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Редактирование релиза
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'releases/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+    <h2 align="center">Редактирование релиза</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <div style="width: 100%; height: 20px"></div>
+        <button class="btn btn-success" type="submit">Обновить релиз</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load auth_extras %}
+
+{% block title %}
+    {{ specification.version }}
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'specifications/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="features" align="center">
+        <h1>Спецификация {{ specification.version }}</h1>
+        <p>Требования:
+            <ul>
+                {% for req in specification.requirements %}
+                    <a href="{% url 'requirements_detail' req.id %}">
+                        <p>{{req.name }}</p>
+                    </a>
+                {% endfor %}
+            </ul>
+        </p>
+        <p>Дата создания: {{ specification.date_creation }}</p>
+        <p>Создал: {{ specification.creator }}</p>
+        <p>Статус: {{ specification.get_status_display }}</p>
+        {% if user|has_group:"Администратор"%}
+            <a href="{% url 'specifications_delete' specification.id %}" class="btn btn-danger">Удалить</a>
+        {% endif %}
+        {% if user|has_group:"Администратор" or user|has_group:"Аналитик" or user|has_group:"Руководитель проекта" or user|has_group:"Архитектор" or user|has_group:"Тестировщик"%}
+            <a href="{% url 'specifications_update' specification.id %}" class="btn btn-info">Редактировать</a>
+        {% endif %}
+
+    </div>
+{% endblock %}

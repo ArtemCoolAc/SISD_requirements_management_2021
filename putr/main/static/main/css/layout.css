@@ -1,0 +1,212 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: #EAEAEA;
+    height: 100%;
+}
+
+.objects {
+    float: left;
+    background: #e0e0e0;
+    padding: 5px;
+    border: solid 1px black;
+    clear: both;
+    width: 400px;
+    margin: 20px 34%;
+    text-align: left;
+}
+li{
+    list-style-type: none;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.fa-cube {
+    font-size: 25px;
+}
+.fa-file-alt{
+    font-size: 25px;
+}
+.fa-upload{
+    font-size: 25px;
+}
+.fa-home {
+    font-size: 25px;
+}
+form {
+    margin-left: 32%;
+    width: 200px;
+    margin-top: 50px;
+}
+li:hover{
+    color: #6DDCBD;
+}
+
+aside{
+    float: left;
+    background: #FFBD00;
+    width: 30%;
+    padding: 2.5%;
+    height: 100vw;
+    color: #fff;
+    border-right: 1px solid #3340a8;
+    /*border-right: 5px solid #4d4d4d;*/
+}
+
+header{
+    background: #893168;
+    height: 10%;
+    border-bottom: 1px solid #ff0042;
+}
+
+
+/* Стиль боковых навигационных ссылок и раскрывающейся кнопки */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.username {
+    font-size: 15px;
+    text-align: center;
+    margin: 2px 2px 2px 2px;
+}
+
+.username_header {
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: #49bed4;
+    width: 100px;
+    word-wrap: break-word;
+}
+
+/* При наведении курсора мыши */
+.sidenav a:hover, .dropdown-btn:hover .btn-group a:hover {
+  color: #6DDCBD;
+}
+
+/* Основное содержание */
+.main {
+  margin-left: 200px; /* То же, что и ширина боковой навигации */
+  font-size: 20px; /* Увеличенный текст для включения прокрутки */
+  padding: 0px 10px;
+}
+
+/* Добавить активный класс для кнопки активного выпадающего списка */
+.active {
+  background-color: #5b80b2;
+  color: white;
+}
+
+/* Выпадающий контейнер (по умолчанию скрыт). Необязательно: добавьте более светлый цвет фона и некоторые левые отступы, чтобы изменить дизайн выпадающего содержимого */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Необязательно: стиль курсора вниз значок */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #5b80b2;
+    overflow: hidden;
+    position: relative;
+    top: -15;
+}
+.btn-secondary {
+    position: relative;
+    float:right;
+    margin-top:0px;
+}
+
+/*Дальше стили заголовка*/
+
+.btn-breadcrumb {
+  width: 100%;
+}
+.btn-breadcrumb .btn:not(:last-child):after {
+  /*content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  left: 100%;
+  z-index: 3;*/
+}
+.btn-breadcrumb .btn:not(:last-child):before {
+  /*content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid rgb(173, 173, 173);
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 3;*/
+}
+
+/** The Spacing **/
+.btn-breadcrumb .btn {
+  padding:6px 12px 6px 24px;
+}
+.btn-breadcrumb .btn:first-child {
+  padding:6px 6px 6px 10px;
+}
+.btn-breadcrumb .btn:last-child {
+  padding:6px 18px 6px 24px;
+  width: 100%;
+}
+
+/** Default button **/
+.btn-breadcrumb .btn:not(:last-child):after {
+  border-left: 10px solid #fff;
+}
+.btn-breadcrumb .btn:not(:last-child):before {
+  border-left: 10px solid #ccc;
+}
+.btn-breadcrumb .btn:hover:not(:last-child):after {
+  border-left: 10px solid #ebebeb;
+}
+.btn-breadcrumb .btn:hover:not(:last-child):before {
+  border-left: 10px solid #adadad;
+}
+
+.btn {
+    /*font-family: "Font Awesome 5 Free";*/
+    font-size: 20px;
+    color: white;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+

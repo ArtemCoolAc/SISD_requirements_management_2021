@@ -1,0 +1,33 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Удаление требования
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'projects/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+    <h2 align="center">Удаление требования</h2>
+    <form method="post">
+        {% csrf_token %}
+        <h1>{{ requirement.name }}</h1>
+        <p>Описание: {{ requirement.description }}</p>
+        <p>Дата создания: {{ requirement.date_creation }}</p>
+        <p>Создал: {{ requirement.creator }}</p>
+        <p>Статус: {{ requirement.get_status_display }}</p>
+        <p>Тип: {{ requirement.get_type_display }}</p>
+        <p>Исполнитель: {{ requirement.executor }}</p>
+        <p>Спецификация:
+            <a href="{% url 'specifications_detail' requirement.specification.id %}">
+            {{ requirement.specification }}
+            </a>
+        </p>
+        <p>Связанное требование: {{ requirement.linked_requirement }}</p>
+        <p>Тип связи: {{ requirement.get_link_type_display }}</p>
+        <button class="btn btn-danger" type="submit">Удалить требование?</button>
+    </form>
+
+{% endblock %}

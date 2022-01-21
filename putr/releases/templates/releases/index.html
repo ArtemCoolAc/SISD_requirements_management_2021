@@ -1,0 +1,54 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load auth_extras %}
+
+{% block title %}
+    Релизы
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'releases/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+{#    <h2 align="center">Релизы</h2>#}
+    <div style="width: 100%; height: 20px"></div>
+    <div class="container2">
+        <div style="width: 25%; height: 100%"></div>
+        <div style="width: 30%; height: 100%">
+            <div class="container3">
+                <div class="rel-header">Релизы</div>
+                {% if user|has_group:"Администратор" or user|has_group:"Руководитель проекта"%}
+                    <div style="width: 20%; height: 100%">
+                        <a href="{% url 'releases_create' %}"><button class="btn btn-primary"><i class="far fa-plus-square"></i></button></a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div style="width: 45%; height: 100%"></div>
+    </div>
+{#    <div style="text-align: center">Релизы</div>#}
+    <div class="container3">
+        <div style="width: 20%; height: 100%"></div>
+        <div style="width: 80%; height: 100%">
+            {% for rel in releases %}
+                <li>
+                    <div class="container3">
+                        <div style="width: 5%; height: 100%; margin-right: 10px">
+                            <i class="fas fa-upload"></i></i>
+                        </div>
+                        <div style="width: 95%; height: 100%; display: flex; flex-direction: row">
+                            <a href="{% url 'releases_detail' rel.id %}">{{ rel.version }}</a>
+                            <div style="color: black; margin-left: 10px; margin-right: 10px">(Проект</div>
+                            <a href="{% url 'projects_detail' rel.project.id %}"> {{ rel.project.name }}</a>
+                            <div style="color: black; margin-left: 0; margin-right: 10px">, Спецификация</div>
+                            <a href="{% url 'specifications_detail' rel.specification.id %}"> {{ rel.specification.version }}</a>
+                            <div style="color: black; margin-left: 0; margin-right: 10px">)</div>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

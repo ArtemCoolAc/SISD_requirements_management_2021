@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load auth_extras %}
+
+{% block title %}
+    Редактирование требования
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'requirements/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+    <h2 align="center">Редактирование требования</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <span> {{ error }} </span>
+        <div style="width: 100%; height: 20px"></div>
+        <button class="btn btn-success" type="submit">Обновить требование</button>
+    </form>
+    {% if user|has_group:"Архитектор"%}
+        <script>
+            document.querySelectorAll('select:not([id="id_status"])').forEach(e=>e.style.pointerEvents = 'None');
+        </script>
+    {% endif %}
+
+{% endblock %}

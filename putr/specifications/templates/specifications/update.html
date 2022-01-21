@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load auth_extras %}
+
+{% block title %}
+    Редактирование спецификации
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'specifications/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+    <h2 align="center">Редактирование спецификации</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <span>{{ form.error }}</span>
+        <div style="width: 100%; height: 20px"></div>
+        <button class="btn btn-success" type="submit" value="Save">Обновить спецификацию</button>
+    </form>
+    {% if user|has_group:"Аналитик"%}
+        <script>
+            document.querySelectorAll('select[id="id_status"]').forEach(e=>e.style.pointerEvents = 'None');
+        </script>
+    {% endif %}
+
+{% endblock %}

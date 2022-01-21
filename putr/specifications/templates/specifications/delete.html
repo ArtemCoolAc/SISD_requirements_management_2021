@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+    {{ requirement.name }}
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'specifications/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="features" align="center">
+        <h1>Спецификация {{ specification.version }}</h1>
+        <p>Требования:
+            <ul>
+                {% for req in specification.requirements %}
+                    <a href="{% url 'requirements_detail' req.id %}">
+                        <li>{{req.name }}</li>
+                    </a>
+                {% endfor %}
+            </ul>
+        </p>
+        <p>Дата создания: {{ specification.date_creation }}</p>
+        <p>Создал: {{ specification.creator }}</p>
+        <p>Статус: {{ specification.get_status_display }}</p>
+        <button class="btn btn-danger" type="submit">Удалить спецификацию?</button>
+    </div>
+{% endblock %}

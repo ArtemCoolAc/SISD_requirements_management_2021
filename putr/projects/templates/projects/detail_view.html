@@ -1,0 +1,54 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load auth_extras %}
+
+{% block title %}
+    {{ release.name }}
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'requirements/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="features" align="center">
+        <h1>Проект {{ project.name }}</h1>
+        <p>Описание: {{ project.description }}</p>
+        <p>Релизы:
+            <ul>
+                {% for release in project.releases %}
+                    <a href="{% url 'releases_detail' release.id %}">
+                        <p>{{ release.version }}</p>
+                    </a>
+                {% endfor %}
+            </ul>
+        </p>
+        <p>Спецификации:
+            <ul>
+                {% for release in project.releases %}
+                    <a href="{% url 'specifications_detail' release.specification.id %}">
+                        <p>{{ release.specification.version }}</p>
+                    </a>
+                {% endfor %}
+            </ul>
+        </p>
+        <p>Требования:
+            <ul>
+                {% for release in project.releases %}
+                    {% for req in release.specification.requirements %}
+                        <a href="{% url 'requirements_detail' req.id %}">
+                            <p>{{req.name }}</p>
+                        </a>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </p>
+
+        {% if user|has_group:"Администратор" %}
+            <a href="{% url 'projects_delete' project.id %}" class="btn btn-danger">Удалить</a>
+        {% endif %}
+        {% if user|has_group:"Администратор" or user|has_group:"Руководитель проекта" %}
+            <a href="{% url 'projects_update' project.id %}" class="btn btn-info">Редактировать</a>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Удаление релиза
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'projects/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+    <h2 align="center">Удаление релиза</h2>
+    <form method="post">
+        {% csrf_token %}
+        <h1>Релиз {{ release.version }}</h1>
+        <p>Спецификация:
+            <a href="{% url 'specifications_detail' release.specification.id %}">
+            {{ release.specification }}
+            </a>
+        </p>
+        <p>Время начала: {{ release.start_date }}</p>
+        <p>Время окончания: {{ release.finish_date }}</p>
+        <p>Описание: {{ requirement.description }}</p>
+        <button class="btn btn-danger" type="submit">Удалить релиз?</button>
+        <div style="width: 100%; height: 20px">{{ user.groups }}</div>
+    </form>
+
+{% endblock %}

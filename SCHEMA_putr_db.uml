@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>d903da41-9705-40a7-bb4b-491a6668c66e.SCHEMA:putr_db</OriginalElement>
+  <nodes>
+    <node x="908.9902840059791" y="1009.7772795216742">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.releases_releases</node>
+    <node x="49.25" y="543.0">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_group_permissions</node>
+    <node x="59.43749999999994" y="228.0">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_permission</node>
+    <node x="-170.8030642750373" y="19.357249626307862">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.django_migrations</node>
+    <node x="362.13541666666663" y="0.0">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.django_content_type</node>
+    <node x="78.11136023916299" y="965.7772795216741">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.requirements_requirements</node>
+    <node x="-174.8030642750373" y="250.0">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.django_session</node>
+    <node x="260.24999999999994" y="543.0">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_user_user_permissions</node>
+    <node x="-117.83744394618839" y="742.0">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.specifications_specifications</node>
+    <node x="658.25" y="488.0">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.django_admin_log</node>
+    <node x="357.75" y="742.0">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.projects_projects</node>
+    <node x="497.68749999999994" y="151.0">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_user</node>
+    <node x="430.55082212257105" y="1012.0">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.requirements_requirements_linked_requirement</node>
+    <node x="490.24999999999994" y="543.0">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_user_groups</node>
+    <node x="298.18749999999994" y="250.0">d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_group</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.django_admin_log" target="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_user" relationship="REFERENCES">
+      <point x="-47.5" y="-104.5" />
+      <point x="705.75" y="447.0" />
+      <point x="579.6875" y="447.0" />
+      <point x="0.0" y="137.5" />
+    </edge>
+    <edge source="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_user_user_permissions" target="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_user" relationship="REFERENCES">
+      <point x="52.5" y="-49.5" />
+      <point x="417.74999999999994" y="447.0" />
+      <point x="579.6875" y="447.0" />
+      <point x="0.0" y="137.5" />
+    </edge>
+    <edge source="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_user_user_permissions" target="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_permission" relationship="REFERENCES">
+      <point x="-52.5" y="-49.5" />
+      <point x="312.74999999999994" y="467.0" />
+      <point x="139.43749999999994" y="467.0" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_permission" target="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.django_content_type" relationship="REFERENCES">
+      <point x="0.0" y="-60.5" />
+      <point x="139.43749999999994" y="125.0" />
+      <point x="446.13541666666663" y="125.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.requirements_requirements_linked_requirement" target="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.requirements_requirements" relationship="REFERENCES">
+      <point x="83.49999999999989" y="-49.5" />
+      <point x="681.0508221225709" y="1247.5082212257098" />
+      <point x="234.111360239163" y="1247.5082212257098" />
+      <point x="52.0" y="126.5" />
+    </edge>
+    <edge source="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_group_permissions" target="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_group" relationship="REFERENCES">
+      <point x="47.75" y="-49.5" />
+      <point x="192.5" y="457.0" />
+      <point x="365.18749999999994" y="457.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.releases_releases" target="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.projects_projects" relationship="REFERENCES">
+      <point x="40.0" y="-104.5" />
+      <point x="1028.990284005979" y="879.5515695067264" />
+      <point x="429.25" y="879.5515695067264" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_user_groups" target="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_user" relationship="REFERENCES">
+      <point x="37.0" y="-49.5" />
+      <point x="601.25" y="447.0" />
+      <point x="579.6875" y="447.0" />
+      <point x="0.0" y="137.5" />
+    </edge>
+    <edge source="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.releases_releases" target="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.specifications_specifications" relationship="REFERENCES">
+      <point x="-40.0" y="-104.5" />
+      <point x="948.9902840059791" y="910.0" />
+      <point x="-11.837443946188387" y="910.0" />
+      <point x="0.0" y="71.5" />
+    </edge>
+    <edge source="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_user_groups" target="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_group" relationship="REFERENCES">
+      <point x="-37.0" y="-49.5" />
+      <point x="527.25" y="457.0" />
+      <point x="365.18749999999994" y="457.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.requirements_requirements" target="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.specifications_specifications" relationship="REFERENCES">
+      <point x="0.0" y="-126.5" />
+      <point x="182.111360239163" y="925.8886397608371" />
+      <point x="-11.837443946188387" y="925.8886397608371" />
+      <point x="0.0" y="71.5" />
+    </edge>
+    <edge source="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_group_permissions" target="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.auth_permission" relationship="REFERENCES">
+      <point x="-47.75" y="-49.5" />
+      <point x="97.0" y="467.0" />
+      <point x="139.43749999999994" y="467.0" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.django_admin_log" target="d903da41-9705-40a7-bb4b-491a6668c66e.TABLE:putr_db.django_content_type" relationship="REFERENCES">
+      <point x="47.5" y="-104.5" />
+      <point x="800.75" y="467.0" />
+      <point x="758.1875" y="467.0" />
+      <point x="758.1875" y="125.0" />
+      <point x="446.13541666666663" y="125.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.49263622974963184" showDependencies="false" x="454.5" y="669.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

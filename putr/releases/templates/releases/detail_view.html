@@ -1,0 +1,39 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load auth_extras %}
+
+{% block title %}
+    {{ release.name }}
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'releases/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="features" align="center">
+        <h1>Релиз {{ release.version }}</h1>
+        <p>Проект:
+               {% if release.project %}
+            <a href="{% url 'projects_detail' release.project.id %}">
+            {{ release.project }}
+               {% endif %}
+            </a>
+        </p>
+        <p>Спецификация:
+            <a href="{% url 'specifications_detail' release.specification.id %}">
+            {{ release.specification }}
+            </a>
+        </p>
+        <p>Время начала: {{ release.start_date }}</p>
+        <p>Время окончания: {{ release.finish_date }}</p>
+        <p>Описание: {{ release.description }}</p>
+        {% if user|has_group:"Администратор" %}
+            <a href="{% url 'releases_delete' release.id %}" class="btn btn-danger">Удалить</a>
+        {% endif %}
+        {% if user|has_group:"Администратор" or user|has_group:"Руководитель проекта"%}
+            <a href="{% url 'releases_update' release.id %}" class="btn btn-info">Редактировать</a>
+        {% endif %}
+
+    </div>
+{% endblock %}

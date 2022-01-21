@@ -1,0 +1,46 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load auth_extras %}
+
+{% block title %}
+    {{ requirement.name }}
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'requirements/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="features" align="center">
+        <h1>{{ requirement.name }}</h1>
+        <p>Описание: {{ requirement.description }}</p>
+        <p>Дата создания: {{ requirement.date_creation }}</p>
+        <p>Создал: {{ requirement.creator }} </p>
+{#        {{ requirement.creator.first_name}} {{ requirement.creator.last_name }}#}
+        <p>Статус: {{ requirement.get_status_display }}</p>
+        <p>Тип: {{ requirement.get_type_display }}</p>
+        <p>Исполнитель: {{ requirement.executor }}</p>
+        <p>Спецификация:
+            <a href="{% url 'specifications_detail' requirement.specification.id %}">
+            {{ requirement.specification }}
+            </a>
+        </p>
+        <p>Связанные требования:
+            <ul>
+                {% for req in requirement.linked_requirement.all %}
+                    <a href="{% url 'requirements_detail' req.id %}">
+                        <p>{{req.name }}</p>
+                    </a>
+                {% endfor %}
+            </ul>
+        </p>
+        <p>Тип связи: {{ requirement.get_link_type_display }}</p>
+        {% if user|has_group:"Администратор" or user|has_group:"Аналитик"%}
+            <a href="{% url 'requirements_delete' requirement.id %}" class="btn btn-danger">Удалить</a>
+        {% endif %}
+        {% if user|has_group:"Администратор" or user|has_group:"Аналитик" or user|has_group:"Руководитель проекта" or user|has_group:"Архитектор"%}
+            <a href="{% url 'requirements_update' requirement.id %}" class="btn btn-info">Редактировать</a>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Удаление проекта
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'projects/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+    <h2 align="center">Удаление проекта</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.name }}
+        {{ form.releases }}
+        <button class="btn btn-danger" type="submit">Удалить проект?</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load auth_extras %}
+
+{% block title %}
+    Спецификации
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'specifications/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div style="width: 100%; height: 20px"></div>
+    <div class="container2">
+        <div style="width: 25%; height: 100%"></div>
+        <div style="width: 30%; height: 100%">
+            <div class="container3">
+                <div class="rel-header">Спецификации</div>
+                <div style="width: 20%; height: 100%">
+                    {% if user|has_group:"Администратор" or user|has_group:"Аналитик" %}
+                        <a href="{% url 'specifications_create' %}"><button class="btn btn-primary"><i class="far fa-plus-square"></i></button></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div style="width: 45%; height: 100%"></div>
+    </div>
+{#    <div style="text-align: center">Релизы</div>#}
+    <div class="container3">
+        <div style="width: 28%; height: 100%"></div>
+        <div style="width: 72%; height: 100%">
+            {% for spec in specifications %}
+                <li>
+                    <div class="container3">
+                        <div style="width: 5%; height: 100%; margin-right: 5px; margin-top: 5px">
+                            <i class="fas fa-paste"></i></i>
+                        </div>
+                        <div style="width: 95%; height: 100%">
+                            <a href="{% url 'specifications_detail' spec.id %}">{{ spec.version }}</a>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

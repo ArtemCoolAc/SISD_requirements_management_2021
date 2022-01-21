@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Создание спецификации
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'specifications/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+    <h2 align="center">Создание спецификации</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <span>{{ error }}</span>
+        <div style="width: 100%; height: 20px"></div>
+        <button class="btn btn-success" type="submit">Создать спецификацию</button>
+    </form>
+
+{% endblock %}
